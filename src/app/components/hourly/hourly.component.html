@@ -3,13 +3,13 @@
     <mat-card-title style="padding-bottom: 10px;">Next Hours</mat-card-title>
 </mat-card-header>
 <mat-divider style="padding: 10px"></mat-divider>
-<mat-card-content>
+<mat-card-content class="hours">
     <mat-grid-list cols="6" rowHeight="100px">
         @for (data of listData; track data) {
             <mat-grid-tile
+            class="hourTile"
             colspan="1"
-            rowspan="1"
-            [style.background]="color">
+            rowspan="1">
             <div class="hourData">
                 <div class="padding5">{{data?.main?.temp | number: '1.0-0'}}&deg;</div>
                 <div class="humidity">{{data?.main?.humidity}}&percnt;</div>

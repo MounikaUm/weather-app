@@ -17,6 +17,6 @@ img {
     color: rgb(95, 95, 201);
 }
 
-::ng-deep .mat-grid-tile {
-    /* border-bottom: 1px solid rgb(184, 182, 182); */
+::ng-deep .dailyTile {
+    border-bottom: 1px solid rgb(184, 182, 182);
 }

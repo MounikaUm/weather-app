@@ -7,17 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
+  apiKey = '482944e26d320a80bd5e4f23b3de7d1f';
   constructor(private http: HttpClient) { }
 
   getWeatherData(lat: number, lon: number): Observable<any> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=233bbfa214a5f78597a2a9b79d651604&units=metric&cnt=6`);
+    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&cnt=6`);
   }
 
   getDailyData(lat: number, lon: number): Observable<any> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=233bbfa214a5f78597a2a9b79d651604&units=metric&cnt=5`);
+    const preUrl = 'api.openweathermap.org/data/2.5/forecast/daily'; // not able to use this API with existing api key
+    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&cnt=5`);
   }
 
   getGeoLocation(city: string): Observable<any> {
-    return this.http.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=233bbfa214a5f78597a2a9b79d651604`);
+    return this.http.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${this.apiKey}`);
   }
 }

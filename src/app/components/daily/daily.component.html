@@ -2,14 +2,13 @@
     <mat-card-header>
         <mat-card-title>Next 5 Days</mat-card-title>
     </mat-card-header>
-    <mat-divider></mat-divider>
+    <mat-divider style="padding: 10px"></mat-divider>
     <mat-card-content>
         <mat-grid-list cols="1" rowHeight="50px">
             @for (data of listData; track data) {
-                <mat-grid-tile
+                <mat-grid-tile class="dailyTile"
                     colspan="1"
-                    rowspan="1"
-                    [style.background]="color">
+                    rowspan="1">
                     <div style="width: 18%;text-align: center;"><img [src]="getIconImage(data.weather[0].icon)" alt="" class="icon-img"></div>
                     <div style="width: 62%;text-align: center;">
                         <div style="font-weight: bold;">{{data?.dt_txt | date:'EEE, MMMM d'}}</div>
