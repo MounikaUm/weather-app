@@ -1,0 +1,20 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="tabChanged($event)" style="background-color: aquamarine;">
+    <mat-tab label="RIO DE JANEIRO">
+        <div *ngIf="currentCity == 'RIO DE JANEIRO'">
+            <app-hourly [cityData]="cityData"></app-hourly>
+            <app-daily [dailyData]="dailyData"></app-daily>
+        </div>
+    </mat-tab>
+    <mat-tab label="BEIJING">
+        <div *ngIf="currentCity == 'BEIJING'">
+            <app-hourly [cityData]="cityData"></app-hourly>
+            <app-daily [dailyData]="dailyData"></app-daily>
+        </div>
+    </mat-tab>
+    <mat-tab label="LOS ANGELES">
+        <div *ngIf="currentCity == 'LOS ANGELES'">
+            <app-hourly [cityData]="cityData"></app-hourly>
+            <app-daily [dailyData]="dailyData"></app-daily>
+        </div>
+    </mat-tab>
+</mat-tab-group>

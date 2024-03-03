@@ -1,0 +1,7 @@
+.mat-toolbar, .mat-card {
+    font-family: 'Open Sans', sans-serif;
+}
+
+::ng-deep .mat-mdc-card-header .mat-mdc-card-header-text .mat-mdc-card-title {
+    font-size: 30px;
+}
