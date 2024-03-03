@@ -2,3 +2,43 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.margin10 {
+    margin: 10px;
+}
+
+.marginLeftAuto {
+    margin-left: auto;
+}
+.padding10 {
+    padding: 10px;
+}
+
+.padding5 {
+    padding: 5px;
+}
+
+.paddingBottom10 {
+    padding-bottom: 10px;
+}
+
+.paddingRight5 {
+    padding-right: 5px;
+}
+
+img {
+    width: 35px;
+    height: 35px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.subText {
+    color: gray;
+}

@@ -1,4 +1,8 @@
 <mat-toolbar color="primary" layout="fill">
   <div>Simple Weather</div>
+  <div class="marginLeftAuto" >
+    <mat-icon fontIcon="search"></mat-icon>
+    <mat-icon fontIcon="refresh" (click)="refreshData()"></mat-icon>
+  </div>
 </mat-toolbar>
-<app-tabs></app-tabs>
+<app-tabs [eventEmitter]="refreshLocationData"></app-tabs>

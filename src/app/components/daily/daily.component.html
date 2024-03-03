@@ -1,21 +1,21 @@
-<mat-card style="margin: 10px;">
+<mat-card class="margin10">
     <mat-card-header>
-        <mat-card-title>Next 5 Days</mat-card-title>
+        <mat-card-title class="paddingBottom10">Next 5 Days</mat-card-title>
     </mat-card-header>
-    <mat-divider style="padding: 10px"></mat-divider>
+    <mat-divider class="padding10"></mat-divider>
     <mat-card-content>
         <mat-grid-list cols="1" rowHeight="50px">
             @for (data of listData; track data) {
                 <mat-grid-tile class="dailyTile"
                     colspan="1"
                     rowspan="1">
-                    <div style="width: 18%;text-align: center;"><img [src]="getIconImage(data.weather[0].icon)" alt="" class="icon-img"></div>
-                    <div style="width: 62%;text-align: center;">
-                        <div style="font-weight: bold;">{{data?.dt_txt | date:'EEE, MMMM d'}}</div>
-                        <div style="color: gray;">{{data.weather[0].description}}</div>
+                    <div class="dailyIcon textCenter"><img [src]="getIconImage(data.weather[0].icon)" alt="" class="icon-img"></div>
+                    <div class="dayInfo textCenter">
+                        <div class="bold">{{data?.dt_txt | date:'EEE, MMMM d'}}</div>
+                        <div class="subText">{{data.weather[0].description}}</div>
                     </div>
-                    <div style="display: flex; width: 20%;text-align: center;">
-                        <div style="padding-right: 5px;">{{data?.main?.temp_max | number: '1.0-0'}}&deg;</div>
+                    <div class="temperature textCenter">
+                        <div class="paddingRight5">{{data?.main?.temp_max | number: '1.0-0'}}&deg;</div>
                         <div>{{data?.main?.temp_min | number: '1.0-0'}}&deg;</div>
                     </div> 
                 </mat-grid-tile>

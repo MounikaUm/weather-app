@@ -20,15 +20,10 @@ export class HourlyComponent {
   @Input() set cityData(value: any) {
     this._cityData = value;
     this.listData = value?.list?.length? value.list : [];
-    this.doSomething(this._cityData);
   }
   
   get cityData(): any {  
     return this._cityData; 
-  }
-
-  doSomething( data: any) {
-    console.log(data);
   }
 
   getIconImage(icon: string) {

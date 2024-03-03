@@ -20,15 +20,10 @@ export class DailyComponent {
   @Input() set dailyData(value: any) {
     this._dailyData = value;
     this.listData = value?.list?.length? value.list.slice(0, 5) : [];
-    this.doSomething(this._dailyData);
   }
   
   get dailyData(): any {  
     return this._dailyData; 
-  }
-
-  doSomething( data: any) {
-    console.log(data);
   }
 
   getIconImage(icon: string) {

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, EventEmitter } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe, NgIf } from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HourlyComponent } from '../hourly/hourly.component';
 import { DailyComponent } from '../daily/daily.component';
 import { WeatherService } from '../../services/weather.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,8 +17,10 @@ import { WeatherService } from '../../services/weather.service';
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'
 })
-export class TabsComponent implements AfterViewInit {
+export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  @Input() eventEmitter: EventEmitter<string> = new EventEmitter();
+  private subscription: Subscription = new Subscription();
   currentCity = 'RIO DE JANEIRO';
   cityData = [];
   dailyData = [];
@@ -25,12 +28,20 @@ export class TabsComponent implements AfterViewInit {
 
   constructor(private weatherService: WeatherService) { }
 
+  ngOnInit(): void {
+    this.subscription = this.eventEmitter.subscribe( (data: string) => {
+      this.getLocationData(this.currentCity);
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
   ngAfterViewInit(): void {
     this.getLocationData('RIO DE JANEIRO');
   }
 
   tabChanged(event: any) {
-    console.log(event.tab.textLabel);
     this.getLocationData(event.tab.textLabel);
   }
 
