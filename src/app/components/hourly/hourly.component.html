@@ -8,7 +8,8 @@
         @for (data of listData; track data) {
             <mat-grid-tile
             colspan="1"
-            rowspan="1">
+            rowspan="1"
+            [style.background]="color">
             <div class="hourData">
                 <div class="padding5">{{data?.main?.temp | number: '1.0-0'}}&deg;</div>
                 <div class="humidity">{{data?.main?.humidity}}&percnt;</div>

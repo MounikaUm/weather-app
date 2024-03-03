@@ -15,7 +15,7 @@ img {
 }
 
 ::ng-deep .mat-grid-tile{
-    border-right: 1px solid rgb(184, 182, 182);
+    /* border-right: 1px solid rgb(184, 182, 182); */
 }
 .humidity {
     color: rgb(95, 95, 201);

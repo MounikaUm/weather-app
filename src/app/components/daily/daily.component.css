@@ -18,5 +18,5 @@ img {
 }
 
 ::ng-deep .mat-grid-tile {
-    border-bottom: 1px solid rgb(184, 182, 182);
+    /* border-bottom: 1px solid rgb(184, 182, 182); */
 }

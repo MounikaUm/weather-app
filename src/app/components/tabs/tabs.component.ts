@@ -1,7 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NgIf } from '@angular/common';
+import { DatePipe, NgIf } from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HourlyComponent } from '../hourly/hourly.component';
 import { DailyComponent } from '../daily/daily.component';
 import { WeatherService } from '../../services/weather.service';
@@ -11,7 +12,7 @@ import { WeatherService } from '../../services/weather.service';
   selector: 'app-tabs',
   standalone: true,
   providers:[ WeatherService ],
-  imports: [MatTabsModule, HourlyComponent, DailyComponent, HttpClientModule, NgIf],
+  imports: [MatTabsModule, HourlyComponent, DailyComponent, HttpClientModule, NgIf, MatToolbarModule, DatePipe],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'
 })
@@ -20,6 +21,7 @@ export class TabsComponent implements AfterViewInit {
   currentCity = 'RIO DE JANEIRO';
   cityData = [];
   dailyData = [];
+  refreshTime = new Date();
 
   constructor(private weatherService: WeatherService) { }
 
@@ -48,6 +50,7 @@ export class TabsComponent implements AfterViewInit {
       }
       this.weatherService.getWeatherData(lat, lon).subscribe( (data:any) => {
         this.cityData = data;
+        this.refreshTime = new Date();
       })
       this.weatherService.getDailyData(lat, lon).subscribe( (data:any) => {
         this.dailyData = data;
