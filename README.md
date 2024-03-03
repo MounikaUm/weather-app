@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Weather API info
+
+With given API key for this project only one of its API is providing data and for other all API calls its giving unauthorised error. So I developed using that 3hours data API call for daily weather display as well.
